@@ -15,24 +15,23 @@ class Wagon {
     shouldQuarantine(){
         
         for(let counter =0; counter <this.passengers.length; counter++){
-            if(this.passengers[counter].isHealthy === true){
+            if(this.passengers[counter].isHealthy === false){
                 return true
             }
             
-        else{
-        return false
-        }
+        
     }
 }
 
     
-    totalFood() {
-        let allFood = this.passengers.reduce(traveler => traveler.food)
-        return allFood
-
-    }
-
-  
+   
+totalFood(){
+    let allFood = this.passengers.reduce((sum, passengers) => {
+        let counter = sum + passengers.food
+         return counter
+    },0)
+    return allFood
+}
 }
 
 
